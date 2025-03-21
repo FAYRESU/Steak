@@ -1,0 +1,66 @@
+/* เพิ่ม Animation */
+@keyframes fadeInAnimation {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+  
+  .animate__fadeIn {
+    animation: fadeInAnimation 1s ease-in-out;
+  }
+  
+  /* ปรับปรุงสไตล์ปุ่ม */
+  .btn {
+    background-color: var(--button-color);
+    color: var(--white);
+    border: none;
+    padding: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .btn:hover {
+    background-color: var(--button-hover-color);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* ข้อความในส่วนของคำอธิบาย */
+  .text-muted {
+    color: #777 !important;
+  }
+  
+  /* Card hover effect */
+  .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* ปรับสไตล์ Mobile */
+  @media (max-width: 768px) {
+    .navbar-nav {
+      text-align: center;
+    }
+  
+    .navbar-toggler {
+      border-color: #fff;
+    }
+  
+    .card {
+      margin-bottom: 1rem;
+    }
+  }
+  
+  /* Desktop animations */
+  @media (min-width: 1024px) {
+    .card {
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+    }
+  
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 18px rgba(0, 0, 0, 0.2);
+    }
+  }
+  

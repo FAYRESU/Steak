@@ -1,0 +1,141 @@
+/* General Styling */
+:root {
+  --bg-color: #ffffff; /* Background color */
+  --primary-color: #6200ea; /* Dark purple */
+  --secondary-color: #333333; /* Dark grey */
+  --button-color: #6200ea; /* Button color */
+  --button-hover-color: #4500b5; /* Darker purple for button hover */
+  --text-color: #333333; /* Text color */
+  --white: #ffffff; /* White color */
+}
+
+/* Apply theme colors */
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+}
+
+/* Navbar Styling */
+header {
+  background-color: var(--primary-color);
+}
+
+header .navbar-brand {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--white);
+}
+
+header .navbar-nav .nav-link {
+  color: var(--white);
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+header .navbar-nav .nav-link:hover {
+  color: var(--secondary-color);
+}
+
+/* Card Styling */
+.card {
+  border-radius: 10px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 1px solid #eee;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-body {
+  background-color: var(--white);
+  padding: 1.5rem;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--secondary-color);
+  margin-bottom: 1rem;
+}
+
+.card-text {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+/* Button Styling */
+.btn {
+  background-color: var(--button-color);
+  color: var(--white);
+  border: none;
+  padding: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background-color: var(--button-hover-color);
+}
+
+/* Footer Styling */
+footer {
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: 30px 0;
+  text-align: center;
+}
+
+footer p {
+  margin: 0;
+}
+
+/* Mobile Styling */
+@media (max-width: 768px) {
+  header .navbar-nav {
+    text-align: center;
+  }
+
+  .navbar-toggler {
+    border-color: #fff;
+  }
+
+  .card {
+    margin-bottom: 1rem;
+  }
+
+  .card-img-top {
+    height: 180px;
+  }
+}
+
+/* Desktop Styling */
+@media (min-width: 1024px) {
+  .navbar-nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  .card {
+    margin: 1rem;
+    flex: 1 0 21%; /* Makes the cards responsive */
+  }
+
+  .container {
+    max-width: 2000px; /* Limit the width for better layout */
+  }
+}
