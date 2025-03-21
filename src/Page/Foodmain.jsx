@@ -156,9 +156,10 @@ const FoodMain = () => {
 
             <div id="products" className="row">
               {products.map((product, index) => (
-                <div key={index} className="col-md-3 product">
-                  <img src={product.img} alt={product.name} width="150px" height="150px" />
-                  <h5>{product.name}<br />${product.price}</h5>
+                <div key={index} className="col-md-3 col-sm-6 product">
+                <img src={product.img} alt={product.name} className="img-fluid w-100 rounded border" />
+                <h5 className="text-center mt-2">{product.name}<br />${product.price}</h5>
+              
 
                   <div>
                     {product.toppings.map((topping, index) => (
@@ -184,10 +185,11 @@ const FoodMain = () => {
           </div>
 
           <div className="col-md-3">
-            <h2 style={{ marginTop: '30px', fontWeight: 'bold', fontSize: '1.75rem', color: '#9c4dcc' }}>
-              Cart
-              <img src="./src/product_img/Cartpng.png" alt="Cartpng" width="34px" height="34px" style={{ marginTop: '-11px' }} />
-            </h2>
+          <h2 style={{ marginTop: '30px', fontWeight: 'bold', fontSize: '1.75rem', color: '#9c4dcc' }}>
+  Cart
+  <img src="./src/product_img/Cartpng.png" alt="Cartpng" className="img-fluid" width="34" height="34" style={{ marginTop: '-11px' }} />
+</h2>
+
             <div id="cart" className="mt-3">
               <Cart cartItems={cart} />
             </div>

@@ -102,3 +102,16 @@ tr:hover {
   position: relative;
   min-height: 80px; /* กำหนดความสูงคงที่ */
 }
+
+.product img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  border: 2px solid #ddd;
+}
+
+@media (max-width: 768px) {
+  .product {
+    text-align: center;
+  }
+}
