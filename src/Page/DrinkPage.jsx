@@ -4,6 +4,13 @@ import Cart from "./Cart";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../nb_shop.css";
 
+import coke from "../product_img/coke.jpg";
+import water from "../product_img/water.jpg";
+import thaitea from "../product_img/thaitea.jpg";
+import lemontea from "../product_img/lemontea.jpg";
+import Cartpng from "../product_img/Cartpng.png";
+
+
 const DrinkPage = () => {
   const [cart, setCart] = useState([]);
   const [toppings, setToppings] = useState({});
@@ -53,25 +60,25 @@ const DrinkPage = () => {
     {
       name: "โค้ก",
       price: 15,
-      img: "./src/product_img/coke.jpg",
+      img: coke,  // Use the imported image here
       toppings: [],
     },
     {
       name: "น้ำเปล่า",
       price: 7,
-      img: "./src/product_img/water.jpg",
+      img: water,  // Use the imported image here
       toppings: [],
     },
     {
       name: "ชาไทย",
       price: 15,
-      img: "./src/product_img/thaitea.jpg",
+      img: thaitea,  // Use the imported image here
       toppings: [],
     },
     {
       name: "ชามะนาว",
       price: 15,
-      img: "./src/product_img/lemontea.jpg",
+      img: lemontea,  // Use the imported image here
       toppings: [],
     },
   ];
@@ -79,26 +86,26 @@ const DrinkPage = () => {
   return (
     <div>
       <header>
-            </header>
-            <header className="bg-dark text-white">
-              <nav className="container navbar navbar-expand-lg navbar-dark py-3">
-                <a className="navbar-brand" href="#">สเต็กลุงหนวด</a>
-                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                  <span className="navbar-toggler-icon"></span>
-                </button>
-                <div className="collapse navbar-collapse" id="navbarNav">
-                  <ul className="navbar-nav ms-auto">
-                    <li className="nav-item"><Link className="nav-link" to="/">Home</Link></li>
-                    <li className="nav-item"><Link className="nav-link" to="/viralfood">เมนูยอดนิยม</Link></li>
-                    <li className="nav-item"><Link className="nav-link" to="/foodmain">อาหารจานหลัก</Link></li>
-                    <li className="nav-item"><Link className="nav-link" to="/salad">สลัด</Link></li>
-                    <li className="nav-item"><Link className="nav-link" to="/snack">อาหารทานเล่น</Link></li>
-                    <li className="nav-item"><Link className="nav-link" to="/sausage">ไส้กรอก</Link></li>
-                    <li className="nav-item"><Link className="nav-link" to="/drink">เครื่องดื่ม</Link></li>
-                  </ul>
-                </div>
-              </nav>
-            </header>
+      </header>
+      <header className="bg-dark text-white">
+        <nav className="container navbar navbar-expand-lg navbar-dark py-3">
+          <a className="navbar-brand" href="#">สเต็กลุงหนวด</a>
+          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <div className="collapse navbar-collapse" id="navbarNav">
+            <ul className="navbar-nav ms-auto">
+              <li className="nav-item"><Link className="nav-link" to="/">Home</Link></li>
+              <li className="nav-item"><Link className="nav-link" to="/viralfood">เมนูยอดนิยม</Link></li>
+              <li className="nav-item"><Link className="nav-link" to="/foodmain">อาหารจานหลัก</Link></li>
+              <li className="nav-item"><Link className="nav-link" to="/salad">สลัด</Link></li>
+              <li className="nav-item"><Link className="nav-link" to="/snack">อาหารทานเล่น</Link></li>
+              <li className="nav-item"><Link className="nav-link" to="/sausage">ไส้กรอก</Link></li>
+              <li className="nav-item"><Link className="nav-link" to="/drink">เครื่องดื่ม</Link></li>
+            </ul>
+          </div>
+        </nav>
+      </header>
 
       <div className="container mt-5">
         <div className="row">
@@ -133,9 +140,8 @@ const DrinkPage = () => {
           <div className="col-md-3">
             <h2 style={{ marginTop: '30px', fontWeight: 'bold', fontSize: '1.75rem', color: '#9c4dcc' }}>
               Cart
-              <img src="./src/product_img/Cartpng.png" alt="Cartpng" width="34px" height="34px" style={{ marginTop: '-11px' }} />
+              <img src={Cartpng} alt="Cartpng" className="img-fluid" width="34" height="34" style={{ marginTop: '-11px' }} />
             </h2>
-
             {/* Cart component */}
             <Cart cartItems={cart} />
           </div>

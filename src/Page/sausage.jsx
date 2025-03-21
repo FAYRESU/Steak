@@ -4,6 +4,11 @@ import Cart from './Cart';  // Import Cart component
 import "bootstrap/dist/css/bootstrap.min.css";
 import '../nb_shop.css'; // Make sure your CSS file is available
 
+import porkrom from "../product_img/porkrom.png";
+import urmansaikrok from "../product_img/urmansaikrok.png";
+import ไส้กรอกชีส from "../product_img/ไส้กรอกชีส.jpg";
+import Cartpng from "../product_img/Cartpng.png";
+
 const Sausage = () => {
   const [cart, setCart] = useState([]);
   const [toppings, setToppings] = useState({});  // Manage selected toppings separately
@@ -84,7 +89,7 @@ const Sausage = () => {
             <div id="products" className="row">
               {/* Product 1 */}
               <div className="col-md-3 product">
-                <img src="./src/product_img/porkrom.png" alt="Product 1 Image" width="150px" height="150px" />
+                <img src={porkrom} alt="Product 1 Image" width="150px" height="150px" />
                 <h5>ไส้กรอกหมูรมควัน<br />$35</h5>
 
                 {/* Toppings (Sauce Options) */}
@@ -107,7 +112,7 @@ const Sausage = () => {
 
               {/* Product 2 */}
               <div className="col-md-3 product">
-                <img src="./src/product_img/urmansaikrok.png" alt="Product 2 Image" width="150px" height="150px" />
+                <img src={urmansaikrok} alt="Product 2 Image" width="150px" height="150px" />
                 <h5>ไส้กรอกเยอรมัน<br />$40</h5>
 
                 {/* Toppings (Sauce Options) */}
@@ -128,36 +133,35 @@ const Sausage = () => {
                 </button>
               </div>
 
+              {/* Product 3 */}
               <div className="col-md-3 product">
-                <img src="./src/product_img/ไส้กรอกชีส.jpg" alt="Product 1 Image" width="150px" height="150px" />
+                <img src={ไส้กรอกชีส} alt="Product 1 Image" width="150px" height="150px" />
                 <h5>ไส้กรอกชีส<br />$35</h5>
 
                 {/* Toppings (Sauce Options) */}
                 <div className="toppings">
                   <label>
-                    <input type="checkbox" className="topping" value="tomato" data-price="5" onChange={(e) => handleToppingChange(e, 'Smoked Pork Sausage', 35)} /> ซอสมะเขือเทศ (+$5)
+                    <input type="checkbox" className="topping" value="tomato" data-price="5" onChange={(e) => handleToppingChange(e, 'Cheese Sausage', 35)} /> ซอสมะเขือเทศ (+$5)
                   </label><br />
                   <label>
-                    <input type="checkbox" className="topping" value="Mala" data-price="10" onChange={(e) => handleToppingChange(e, 'Smoked Pork Sausage', 35)} /> ซอสหม่าล่า (+$10)
+                    <input type="checkbox" className="topping" value="Mala" data-price="10" onChange={(e) => handleToppingChange(e, 'Cheese Sausage', 35)} /> ซอสหม่าล่า (+$10)
                   </label><br />
                   <label>
-                    <input type="checkbox" className="topping" value="Mayongnes" data-price="5" onChange={(e) => handleToppingChange(e, 'Smoked Pork Sausage', 35)} /> ซอสมายองเนส (+$5)
+                    <input type="checkbox" className="topping" value="Mayongnes" data-price="5" onChange={(e) => handleToppingChange(e, 'Cheese Sausage', 35)} /> ซอสมายองเนส (+$5)
                   </label><br />
                 </div>
 
-                <button className="btn btn-primary" onClick={() => addToCart('Sheese Sausage', 35, [])}>
+                <button className="btn btn-primary" onClick={() => addToCart('Cheese Sausage', 35, [])}>
                   Add to Cart
                 </button>
               </div>
             </div>
           </div>
 
-          
-
           <div className="col-md-3">
             <h2 style={{ marginTop: '30px', fontWeight: 'bold', fontSize: '1.75rem', color: '#9c4dcc' }}>
               Cart
-              <img src="./src/product_img/Cartpng.png" alt="Cartpng" width="34px" height="34px" style={{ marginTop: '-11px' }} />
+              <img src={Cartpng} alt="Cartpng" className="img-fluid" width="34" height="34" style={{ marginTop: '-11px' }} />
             </h2>
 
             {/* Cart component */}

@@ -3,6 +3,13 @@ import { Link } from "react-router-dom";
 import Cart from "./Cart";
 import "../nb_shop.css";
 
+import salagfish from "../product_img/salagfish.png";
+import tunasalad from "../product_img/tunasalad.png";
+import salad1 from "../product_img/salad1.png";
+import porksalad from "../product_img/porksalad.jpg";
+import chickensalad from "../product_img/chickensalad.jpg";
+import Cartpng from "../product_img/Cartpng.png";
+
 const SaladPage = () => {
   const [cart, setCart] = useState([]);
   const [toppings, setToppings] = useState({});
@@ -81,25 +88,25 @@ const SaladPage = () => {
           <div className="col-md-9">
             <div id="products" className="row">
               {[{
-                name: "สลัดปลาทอด", price: 70, img: "salagfish.png"
+                name: "สลัดปลาทอด", price: 70, img: salagfish
               }, {
-                name: "สลัดทูน่า", price: 50, img: "tunasalad.png"
+                name: "สลัดทูน่า", price: 50, img: tunasalad
               }, {
-                name: "สลัดผัก", price: 40, img: "salad1.png"
+                name: "สลัดผัก", price: 40, img: salad1
               }, {
-                name: "สลัดหมู", price: 55, img: "porksalad.jpg"
+                name: "สลัดหมู", price: 55, img: porksalad
               }, {
-                name: "สลัดไก่", price: 50, img: "chickensalad.jpg"
+                name: "สลัดไก่", price: 50, img: chickensalad
               }].map(({ name, price, img }) => (
                 <div key={name} className="col-md-3 product">
-                  <img src={`./src/product_img/${img}`} alt={name} width="150px" height="150px" />
-                  <h5>{name}<br />${price}</h5>
+                  <img src={img} alt={name} width="150px" height="150px" />
+                  <h5>{name}<br />฿{price}</h5>
                   <div className="toppings">
                     <label>
-                      <input type="checkbox" value="ชีส" data-price="10" onChange={(e) => handleToppingChange(e, name, price)} /> ชีส (+$10)
+                      <input type="checkbox" value="ชีส" data-price="10" onChange={(e) => handleToppingChange(e, name, price)} /> ชีส (+฿10)
                     </label><br />
                     <label>
-                      <input type="checkbox" value="อะโวคาโด" data-price="15" onChange={(e) => handleToppingChange(e, name, price)} /> อะโวคาโด (+$15)
+                      <input type="checkbox" value="อะโวคาโด" data-price="15" onChange={(e) => handleToppingChange(e, name, price)} /> อะโวคาโด (+฿15)
                     </label>
                   </div>
                   <br />
@@ -110,7 +117,10 @@ const SaladPage = () => {
           </div>
 
           <div className="col-md-3">
-            <h2 className="cart-title">Cart <img src="./src/product_img/Cartpng.png" alt="Cart" width="34px" height="34px" /></h2>
+             <h2 style={{ marginTop: '30px', fontWeight: 'bold', fontSize: '1.75rem', color: '#9c4dcc' }}>
+                          Cart
+                          <img src={Cartpng} alt="Cartpng" className="img-fluid" width="34" height="34" style={{ marginTop: '-11px' }} />
+                        </h2>
             <Cart cartItems={cart} />
           </div>
         </div>

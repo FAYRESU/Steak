@@ -1,27 +1,32 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom"; // Ensure you have imported Link from react-router-dom
-import Cart from './Cart';  // Import Cart component
+import { Link } from "react-router-dom"; 
+import Cart from './Cart';  
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../nb_shop.css";
 
-// FoodMain component refactored like ViralFood.jsx
+// Import รูปภาพให้ React รองรับ
+import Porkshop from "../product_img/Porkshop.png";
+import stackmeat from "../product_img/stackmeat.png";
+import firdrideUk from "../product_img/firdrideUk.png";
+import Tbstack from "../product_img/Tbstack.png";
+import fishsipe from "../product_img/fishsipe.png";
+import SpaghettiPork from "../product_img/SpaghettiPork.png";
+import Cartpng from "../product_img/Cartpng.png";
+
 const FoodMain = () => {
   const [cart, setCart] = useState([]);
-  const [toppings, setToppings] = useState({});  // Manage selected toppings separately
+  const [toppings, setToppings] = useState({});  
 
-  // Load cart from localStorage on component mount
   useEffect(() => {
     const savedCart = JSON.parse(localStorage.getItem('cart')) || [];
     setCart(savedCart);
   }, []);
 
-  // Update localStorage and state when cart is updated
   const updateCart = (newCart) => {
     setCart(newCart);
     localStorage.setItem('cart', JSON.stringify(newCart));
   };
 
-  // Handle adding a product to the cart
   const addToCart = (product, price, selectedToppings) => {
     const toppingsPrice = selectedToppings.reduce((acc, topping) => acc + parseFloat(topping.price), 0);
     const totalPrice = price + toppingsPrice;
@@ -39,7 +44,6 @@ const FoodMain = () => {
     updateCart(updatedCart);
   };
 
-  // Handle topping change
   const handleToppingChange = (event, product, price) => {
     const toppingName = event.target.value;
     const toppingPrice = parseFloat(event.target.dataset.price);
@@ -49,7 +53,7 @@ const FoodMain = () => {
         ? [...(prevToppings[product] || []), { name: toppingName, price: toppingPrice }]
         : prevToppings[product].filter(topping => topping.name !== toppingName);
 
-      addToCart(product, price, newToppings);  // Update the cart with new toppings
+      addToCart(product, price, newToppings);  
       return { ...prevToppings, [product]: newToppings };
     });
   };
@@ -58,7 +62,7 @@ const FoodMain = () => {
     {
       name: "พอร์คชอพ",
       price: 80,
-      img: "./src/product_img/Porkshop.png",
+      img: Porkshop,  // Use imported image
       toppings: [
         { name: "ผักต้ม", price: 10 },
         { name: "น่องไก่", price: 20 },
@@ -70,7 +74,7 @@ const FoodMain = () => {
     {
       name: "สเต็กเนื้อ",
       price: 85,
-      img: "./src/product_img/stackmeat.png",
+      img: stackmeat,  // Use imported image
       toppings: [
         { name: "ผักต้ม", price: 10 },
         { name: "น่องไก่", price: 20 },
@@ -82,7 +86,7 @@ const FoodMain = () => {
     {
       name: "ข้าวผัดอเมริกัน",
       price: 65,
-      img: "./src/product_img/firdrideUk.png",
+      img: firdrideUk,  // Use imported image
       toppings: [
         { name: "ผักต้ม", price: 10 },
         { name: "น่องไก่", price: 20 },
@@ -94,7 +98,7 @@ const FoodMain = () => {
     {
       name: "ทีโบนสเต็ก",
       price: 180,
-      img: "./src/product_img/Tbstack.png",
+      img: Tbstack,  // Use imported image
       toppings: [
         { name: "ผักต้ม", price: 10 },
         { name: "น่องไก่", price: 20 },
@@ -106,7 +110,7 @@ const FoodMain = () => {
     {
       name: "ฟิชแอนด์ชิพ",
       price: 70,
-      img: "./src/product_img/fishsipe.png",
+      img: fishsipe,  // Use imported image
       toppings: [
         { name: "ผักต้ม", price: 10 },
         { name: "น่องไก่", price: 20 },
@@ -118,7 +122,7 @@ const FoodMain = () => {
     {
       name: "สปาเก็ตตี้หมูสับ",
       price: 45,
-      img: "./src/product_img/SpaghettiPork.png",
+      img: SpaghettiPork,  // Use imported image
       toppings: [
         { name: "ผักต้ม", price: 10 },
         { name: "น่องไก่", price: 20 },
@@ -153,14 +157,11 @@ const FoodMain = () => {
       <div className="container mt-5">
         <div className="row">
           <div className="col-md-9">
-
             <div id="products" className="row">
               {products.map((product, index) => (
                 <div key={index} className="col-md-3 col-sm-6 product">
-                <img src={product.img} alt={product.name} className="img-fluid w-100 rounded border" />
-                <h5 className="text-center mt-2">{product.name}<br />${product.price}</h5>
-              
-
+                  <img src={product.img} alt={product.name} className="img-fluid w-100 rounded border" />
+                  <h5 className="text-center mt-2">{product.name}<br />${product.price}</h5>
                   <div>
                     {product.toppings.map((topping, index) => (
                       <label key={index}>
@@ -185,10 +186,10 @@ const FoodMain = () => {
           </div>
 
           <div className="col-md-3">
-          <h2 style={{ marginTop: '30px', fontWeight: 'bold', fontSize: '1.75rem', color: '#9c4dcc' }}>
-  Cart
-  <img src="./src/product_img/Cartpng.png" alt="Cartpng" className="img-fluid" width="34" height="34" style={{ marginTop: '-11px' }} />
-</h2>
+            <h2 style={{ marginTop: '30px', fontWeight: 'bold', fontSize: '1.75rem', color: '#9c4dcc' }}>
+              Cart
+              <img src={Cartpng} alt="Cartpng" className="img-fluid" width="34" height="34" style={{ marginTop: '-11px' }} />
+            </h2>
 
             <div id="cart" className="mt-3">
               <Cart cartItems={cart} />

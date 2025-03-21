@@ -3,6 +3,18 @@ import { Link } from 'react-router-dom';  // Ensure you have imported Link from 
 import Cart from './Cart';  // Import Cart component
 import '../nb_shop.css'; // Ensure your CSS file is available
 
+// Import รูปภาพให้ React รองรับ
+import นักเก็ต from "../product_img/นักเก็ต.png";
+import เฟรนฟราย from "../product_img/เฟรนฟราย.png";
+import ปังเนยยม from "../product_img/ปังเนยยม.png";
+import ปังเนยน้ำตาล from "../product_img/ปังเนยน้ำตาล.png";
+import ปังเนยแยม from "../product_img/ปังเนยแยม.png";
+import ปังเนยช็อค from "../product_img/ปังเนยช็อค.png";
+import ปังเนยกระเทียม from "../product_img/ปังเนยกระเทียม.jpg";
+import ปังเนย from "../product_img/ปังเนย.jpg";
+import มันบดเกรวี่ from "../product_img/มันบดเกรวี่.png";
+import Cartpng from "../product_img/Cartpng.png";
+
 const Snack = () => {
   const [cart, setCart] = useState([]);  // Initialize cart state
   const [toppings, setToppings] = useState({});  // Manage selected toppings separately
@@ -57,58 +69,58 @@ const Snack = () => {
       id: 'Nuggrst',
       name: 'นักเก็ต',
       price: 45,
-      imgSrc: './src/product_img/นักเก็ต.png',
+      imgSrc: นักเก็ต, // Use imported image here
     },
     {
       id: 'French Fries',
       name: 'มันฝรั่งทอด',
       price: 35,
-      imgSrc: './src/product_img/เฟรนฟราย.png',
+      imgSrc: เฟรนฟราย, // Use imported image here
     },
     {
       id: 'Sweet Milk Toast',
       name: 'ขนมปังเนย + นม',
       price: 12,
-      imgSrc: './src/product_img/ปังเนยยม.png',
+      imgSrc: ปังเนยยม, // Use imported image here
     },
     {
       id: 'Sugar Toast',
       name: 'ขนมปังเนย + น้ำตาล',
       price: 12,
-      imgSrc: './src/product_img/ปังเนยน้ำตาล.png',
+      imgSrc: ปังเนยน้ำตาล, // Use imported image here
     },
     {
       id: 'Jam Toast',
       name: 'ขนมปังเนย + แยม',
       price: 12,
-      imgSrc: './src/product_img/ปังเนยแยม.png',
+      imgSrc: ปังเนยแยม, // Use imported image here
     },
     {
       id: 'Chocolate Toast',
       name: 'ขนมปังเนย + ช็อคโกแลต',
       price: 12,
-      imgSrc: './src/product_img/ปังเนยช็อค.png',
+      imgSrc: ปังเนยช็อค, // Use imported image here
     },
     {
       id: 'Garlic Toast',
       name: 'ขนมปังเนยกระเทียม',
       price: 10,
-      imgSrc: './src/product_img/ปังเนยกระเทียม.jpg',
+      imgSrc: ปังเนยกระเทียม, // Use imported image here
     },
     {
       id: 'Butter Toast',
       name: 'ขนมปังเนย',
       price: 10,
-      imgSrc: './src/product_img/ปังเนย.jpg',
+      imgSrc: ปังเนย, // Use imported image here
     },
     {
       id: 'Mashed Potatoes With Gravy',
       name: 'มันบดเกรวี่',
       price: 25,
-      imgSrc: './src/product_img/มันบดเกรวี่.png',
+      imgSrc: มันบดเกรวี่, // Use imported image here
     }
   ];
-
+  
   return (
     <div>
       <header>
@@ -160,10 +172,10 @@ const Snack = () => {
           </div>
 
           <div className="col-md-3">
-            <h2 style={{ marginTop: '30px', fontWeight: 'bold', fontSize: '1.75rem', color: '#9c4dcc' }}>
-              Cart
-              <img src="./src/product_img/Cartpng.png" alt="Cart" width="34px" height="34px" style={{ marginTop: '-11px' }} />
-            </h2>
+           <h2 style={{ marginTop: '30px', fontWeight: 'bold', fontSize: '1.75rem', color: '#9c4dcc' }}>
+                         Cart
+                         <img src={Cartpng} alt="Cartpng" className="img-fluid" width="34" height="34" style={{ marginTop: '-11px' }} />
+                       </h2>
 
             {/* Use the Cart component to display the cart items */}
             <Cart cartItems={cart} />
