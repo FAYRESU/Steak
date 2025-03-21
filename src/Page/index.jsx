@@ -2,6 +2,24 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../App.css'; // Import the custom CSS file for styles
 
+// Import รูปภาพให้ React รองรับ
+import se3 from "../product_img/se3.png";
+import jan from "../product_img/jan.png";
+import salad1 from "../product_img/salad1.png";
+import tanlan from "../product_img/tanlan.png";
+import saikrok from "../product_img/saikrok.png";
+import drink from "../product_img/drink.png";
+
+// เก็บข้อมูลเมนูไว้ในอาร์เรย์
+const menuItems = [
+  { img: se3, title: "เมนูยอดนิยม", link: "/popular" },
+  { img: jan, title: "อาหารจานหลัก", link: "/Foodmain" },
+  { img: salad1, title: "สลัด", link: "/salad" },
+  { img: tanlan, title: "อาหารทานเล่น", link: "/snack" },
+  { img: saikrok, title: "ไส้กรอก", link: "/sausage" },
+  { img: drink, title: "เครื่องดื่ม", link: "/drink" }
+];
+
 const Index = () => {
   return (
     <div>
@@ -24,17 +42,10 @@ const Index = () => {
       <div className="container py-5">
         <div className="row">
           {/* Cards for categories */}
-          {[ 
-            { img: "se3.png", title: "เมนูยอดนิยม", link: "/viralfood" },
-            { img: "jan.png", title: "อาหารจานหลัก", link: "/Foodmain" },
-            { img: "salad1.png", title: "สลัด", link: "/salad" },
-            { img: "tanlan.png", title: "อาหารทานเล่น", link: "/snack" },
-            { img: "saikrok.png", title: "ไส้กรอก", link: "/sausage" },
-            { img: "drink.png", title: "เครื่องดื่ม", link: "/drink" }
-          ].map((item, index) => (
+          {menuItems.map((item, index) => (
             <div key={index} className="col-lg-4 col-md-6 col-sm-12 mb-4">
               <div className="card shadow-sm border-0">
-                <img src={`./src/product_img/${item.img}`} className="card-img-top img-fluid" alt={item.title} />
+                <img src={item.img} className="card-img-top img-fluid" alt={item.title} />
                 <div className="card-body text-center">
                   <h5 className="card-title">{item.title}</h5>
                   <Link to={item.link} className="btn btn-primary w-100">Read More <i className="fas fa-arrow-right"></i></Link>
@@ -60,7 +71,7 @@ const Index = () => {
       <div className="container py-5">
         <h3 className="text-center text-dark mb-5">ความคิดเห็นจากลูกค้า</h3>
         <div className="row">
-          {[ 
+          {[
             { name: "คุณสมบัติ", comment: "อาหารอร่อย บริการดีมาก แนะนำเลย!" },
             { name: "คุณปุ๊ก", comment: "บรรยากาศดีมาก อาหารอร่อย ราคาไม่แพง" },
             { name: "คุณน้อย", comment: "ทุกเมนูอร่อยมาก ประทับใจมากๆ" }
